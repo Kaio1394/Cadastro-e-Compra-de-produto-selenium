@@ -75,5 +75,11 @@ public class PageObject {
 		WebDriverWait elemento = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 		elemento.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 	}
+	public void esperaExplicitaAteElementoSejaVisivelPeloXpath(String xpath, String texto) {
+		// TODO Auto-generated method stub
+		WebDriverWait elemento = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+		elemento.until(ExpectedConditions.textToBePresentInElementValue(this.procurarElementoPeloXPath(xpath), texto));
+	}
+	
 
 }

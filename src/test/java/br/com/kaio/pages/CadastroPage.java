@@ -1,15 +1,18 @@
 package br.com.kaio.pages;
 
+
+
 public class CadastroPage extends PageObject {
 	public static final String PRIMEIRO_NOME = "Fulano";
 	public static final String ULTIMO_NOME = "Bartolomeu";
-	public static final String EMAIL = "jasonwu1d11@bedul.net";
+	public static final String EMAIL = "jasonwu1dddd11@bedul.net";
 	public static final String SENHA = "kaio1310";
 	public static final String RUA = "Abington Lane";
 	public static final String CIDADE = "Dearborn";
 	public static final String POSTAL = "48124";
 	public static final String TELEFONE = "42988652291";
 	public static final String ENDERECO_ALTERNATIVO = "Appoline";
+	public static final String MENSAGEM_ERRO = "Invalid email address.";
 
 	public CadastroPage() {
 		super(null);
