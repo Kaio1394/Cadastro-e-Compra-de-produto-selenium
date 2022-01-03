@@ -1,10 +1,14 @@
 package br.com.kaio.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageObject {
 	protected WebDriver driver;
@@ -65,6 +69,11 @@ public class PageObject {
 		WebElement elemento = this.procurarElementoPeloId(id);
 		Select select = new Select(elemento);
 		select.selectByValue(valor);
+	}
+	public void esperaExplicitaAteElementoSejaClicavelPeloXpath(String xpath) {
+		// TODO Auto-generated method stub
+		WebDriverWait elemento = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+		elemento.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 	}
 
 }

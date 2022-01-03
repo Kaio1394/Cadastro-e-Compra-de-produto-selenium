@@ -3,7 +3,7 @@ package br.com.kaio.pages;
 public class CadastroPage extends PageObject {
 	public static final String PRIMEIRO_NOME = "Fulano";
 	public static final String ULTIMO_NOME = "Bartolomeu";
-	public static final String EMAIL = "jasonwu11ss222@bedul.net";
+	public static final String EMAIL = "jasonwu1d11@bedul.net";
 	public static final String SENHA = "kaio1310";
 	public static final String RUA = "Abington Lane";
 	public static final String CIDADE = "Dearborn";
@@ -16,6 +16,10 @@ public class CadastroPage extends PageObject {
 	}
 
 	public void realizarCadastroDeUsuario() {
+		
+		// Espera explicita até que o radio buttom seja clicavel
+		this.esperaExplicitaAteElementoSejaClicavelPeloXpath("//*[@id=\"id_gender1\"]");
+		
 		// Clicando no radio buttom
 		this.clicarElementoPeloXPath("//*[@id=\"id_gender1\"]");
 		
@@ -43,6 +47,7 @@ public class CadastroPage extends PageObject {
 		this.clicarElementoPeloId("submitAccount");
 
 	}
+
 
 	public void selecionarComboxDataDeAniversario() {
 		this.selecionarCombomxPeloValor("days", "13");

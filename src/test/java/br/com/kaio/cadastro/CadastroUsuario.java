@@ -22,22 +22,19 @@ public class CadastroUsuario {
 	}
 
 	@Quando("clico em criar uma conta")
-	public void clico_em_criar_uma_conta() throws InterruptedException {
+	public void clico_em_criar_uma_conta(){
 		this.page.clicarElementoPeloId("SubmitCreate");
-		Thread.sleep(5000);
 	}
 
 	@Quando("preencho todo o formulario de cadastro")
-	public void preencho_todo_o_formulario_de_cadastro() throws InterruptedException {
+	public void preencho_todo_o_formulario_de_cadastro() {
 		// Write code here that turns the phrase above into concrete actions
 		this.page.realizarCadastroDeUsuario();
-		Thread.sleep(20000);
 	}
 
 	@Então("o cadastro e realizado com sucesso")
 	public void o_cadastro_e_realizado_com_sucesso() {
 		// Write code here that turns the phrase above into concrete actions
-		System.out.println(this.page.procurarElementoPeloXPath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span").getText());
 		Assert.assertEquals(CadastroPage.PRIMEIRO_NOME + " " + CadastroPage.ULTIMO_NOME, 
 				this.page.procurarElementoPeloXPath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span").getText());
 	}
