@@ -5,6 +5,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import junit.framework.Assert;
 
 public class CadastroUsuario {
 	CadastroPage page;
@@ -17,7 +18,7 @@ public class CadastroUsuario {
 	@Quando("preencho o campo email com dado valido")
 	public void preencho_o_campo_email_com_dado_valido() throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-		this.page.preencherCampoPorId("email_create", "kaio@hotmail.com");
+		this.page.preencherCampoPorId("email_create", CadastroPage.EMAIL);
 	}
 
 	@Quando("clico em criar uma conta")
@@ -29,18 +30,20 @@ public class CadastroUsuario {
 	@Quando("preencho todo o formulario de cadastro")
 	public void preencho_todo_o_formulario_de_cadastro() throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-		Thread.sleep(5000);
-		this.page.realizarCadastroDeusuario();
-		Thread.sleep(5000);
+		this.page.realizarCadastroDeUsuario();
+		Thread.sleep(20000);
 	}
 
 	@Então("o cadastro e realizado com sucesso")
 	public void o_cadastro_e_realizado_com_sucesso() {
 		// Write code here that turns the phrase above into concrete actions
+		System.out.println(this.page.procurarElementoPeloXPath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span").getText());
+		Assert.assertEquals(CadastroPage.PRIMEIRO_NOME + " " + CadastroPage.ULTIMO_NOME, 
+				this.page.procurarElementoPeloXPath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a/span").getText());
 	}
 
 	@After
-	public void afterEach() {
+	public void after() {
 		page.fecharJanela();
 	}
 }

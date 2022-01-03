@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class PageObject {
 	protected WebDriver driver;
@@ -59,6 +60,11 @@ public class PageObject {
 	public void clicarElementoPeloXPath(String xpath) {
 		// TODO Auto-generated method stub
 		this.procurarElementoPeloXPath(xpath).click();
+	}
+	public void selecionarCombomxPeloValor(String id, String valor) {
+		WebElement elemento = this.procurarElementoPeloId(id);
+		Select select = new Select(elemento);
+		select.selectByValue(valor);
 	}
 
 }
