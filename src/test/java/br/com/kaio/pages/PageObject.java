@@ -12,44 +12,53 @@ public class PageObject {
 	public PageObject(WebDriver driver) {
 		System.setProperty("webdriver.chrome.driver", "/home/kaio/Documentos/drivers/chromedriver/chromedriver");
 
-		if(driver == null) {
+		if (driver == null) {
 			this.driver = new ChromeDriver();
 			this.navegarURl(URL);
 		} else {
 			this.driver = driver;
 		}
 	}
+
 	public void preencherCampoPorId(String id, String texto) {
 		// TODO Auto-generated method stub
 		this.driver.findElement(By.id(id)).sendKeys(texto);
 	}
+
 	public void preencherCampoPorXPath(String xpath, String texto) {
 		// TODO Auto-generated method stub
 		this.driver.findElement(By.xpath(xpath)).sendKeys(texto);
 	}
+
 	public void fecharJanela() {
 		// TODO Auto-generated method stub
 		this.driver.quit();
 	}
+
 	public void navegarURl(String url) {
 		this.driver.navigate().to(url);
 	}
+
 	public WebElement procurarElementoPeloId(String id) {
 		return this.driver.findElement(By.id(id));
 	}
+
 	public WebElement procurarElementoPeloXPath(String xpath) {
 		return this.driver.findElement(By.xpath(xpath));
 	}
+
 	public void limparCampoPorId(String id) {
 		this.driver.findElement(By.id(id)).clear();
 	}
-	public void clicarElementoPeloId(String id){
+
+	public void clicarElementoPeloId(String id) {
 		// TODO Auto-generated method stub
 		this.procurarElementoPeloId(id).click();
 	}
-	public void clicarElementoPeloXPath(String xpath){
+
+	public void clicarElementoPeloXPath(String xpath) {
 		// TODO Auto-generated method stub
 		this.procurarElementoPeloXPath(xpath).click();
 	}
-	
+
 }
